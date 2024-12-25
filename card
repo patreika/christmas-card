@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Christmas Card</title>
+  <style>
+    /* Background and general styles */
+    body {
+      background: #660033; /* Burgundy */
+      font-family: "Playwrite New Zealand", cursive, sans-serif;
+      text-align: center;
+      color: #ffffff;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 5vw; /* Scales based on viewport width */
+      color: #98a869;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #ff8a80;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #252525;
+    }
+
+    #surprise {
+      display: none;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #4caf50;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .snowflake {
+      position: absolute;
+      color: white;
+      font-size: 1.5rem;
+      animation: fall 5s infinite linear;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    /* Specific styles for the "Here's my message to you" text */
+    #message-heading {
+      color: #98a869;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    /* Media Queries for responsive design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem; /* Smaller font size on mobile */
+      }
+
+      p {
+        font-size: 1rem; /* Adjust text size */
+      }
+
+      button {
+        padding: 8px 16px; /* Smaller button size */
+        font-size: 1rem;
+      }
+
+      #surprise {
+        font-size: 1.2rem; /* Slightly smaller font in surprise message */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎄 Merry Christmas! 🎄</h1>
+  <p>Click the button below to unwrap your surprise!</p>
+  <button onclick="showMessage()">Unwrap 🎁</button>
+  <div id="surprise">
+    <p class="message-text">Here's my message to you <3: </p>
+    <p style="color: #faf9f6; font-family: 'Arial', sans-serif; font-size: 1.4rem; line-height: 1.6;">
+      Hi my mus mus,
+      <br><br>
+      I just wanted to say thank you for being apart of my life. I'm so happy and grateful that Jesus put you in my life. I love being able to spend my days with you whenever I get the chance, and that you're truly an amazing man!
+      <br><br>
+      I know that I've never really went into specifics as to why I think that, so here it is:
+      <br><br>
+      I like the way you get so focused whenever you're talking about a topic (that you know quite a lot about which is most things) or whenever you're trying to remember something. I love how family-oriented you are (I tell you that quite a lot lol). I love how intellectually mature you are (you truly know how to communicate), in addition to being analytical, insightful, and literally everything that encapsulates being intellectual (love how your mind works). I love that you are a leader; just knowing that I could depend on you is a comforting feeling. I love your smile because when you do, so do your eyes, and it's the cutest thing ever!
+      <br><br>
+      You're such a sweet, kind, and considerate person. I like that you're always trying to fix your time management—shows that you are self-aware and you're willing to change. I love how you're always striving to do something for your betterment (i.e. school work, personal growth). I love how intentional you are. I love how endearingly talkative you are, always keeping the convo interesting and lively. I absolutely love your fashion sense! I love that you're hardworking, always striving to get the outcome that you want. And I guesssss I think you're one of the funniest people ever.
+      <br><br>
+      I love being able to spend time with you whether it's chilling at school, calling on the phone, or going on dates. I haven't felt these strong feelings for someone in a long time, and I'm glad that it's you!! I could definitely get into a lot more, but I do want it to be short and sweet :)
+      <br><br>
+      I feel like this would've been sweeter in person, but this is just as good since you'll always be able to look at it again. I just wanted to say that I really like you, bubba—like really, really—and I can't wait to see our future together. Mwahhh!
+      <br><br>
+      Yours, truly
+      <br><br>
+      Your, P <3
+    </p>
+  </div>
+
+  <!-- JavaScript for animation -->
+  <script>
+    function showMessage() {
+      document.getElementById("surprise").style.display = "block";
+    }
+
+    // Create falling snowflakes
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.textContent = "❄";
+      snowflake.style.left = Math.random() * 100 + "vw";
+      snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(snowflake);
+      setTimeout(() => {
+        snowflake.remove();
+      }, 5000);
+    }
+    setInterval(createSnowflake, 200); // Create snowflakes every 200ms
+  </script>
+</body>
+
+</html>
